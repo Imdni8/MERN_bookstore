@@ -1,0 +1,1 @@
+export const mongoDBurl = "mongodb+srv://tousifrahaman:buildinAPPS@clustermsw.y7erane.mongodb.net/books-collection?retryWrites=true&w=majority&appName=ClusterMSW"

@@ -1,16 +1,24 @@
-import axios from "axios"
+// import axios from "axios"
+import {Routes, Route, Link} from "react-router-dom"
+import Home from "./pages/Home"
+import Booklist from "./pages/Booklist"
 
 function App() {
-axios.get("http://localhost:3000/books")
-.then(res => console.log(res.data[0].title))
-
+// axios.get("http://localhost:3000/books")
+// .then(res => console.log(res.data[0].title))
 
   return (
     <>
-      <h1 className='bg-red-400 text-blue-500 text-center'>hello world</h1>
-      <h2>testing</h2>
-      {/* <p>{res.data}</p> */}
+    <div className='flex'>
+    <Link className='p-2' to="/">Home</Link>
+    <Link className='p-2' to="/booklist">Booklist</Link>
+    </div>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/booklist" element={<Booklist/>} />
+    </Routes>
     </>
+    
   )
 }
 

@@ -7,7 +7,10 @@ import cors from "cors"
 const app = express()
 
 //setting up CORS
-app.use(cors())
+app.use(
+    cors({
+        origin: "http://localhost:5173"
+    }))
 
 //expres JSON parser
 app.use(express.json())

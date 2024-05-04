@@ -11,7 +11,7 @@ const bookSchema = new Schema({
     },
     img: {
         type: String,
-        default: "../public/defaultImg.jpg"
+        default: "/defaultImg.jpg"
     }, //add a default img when no images
     quantity: {
         type: String,

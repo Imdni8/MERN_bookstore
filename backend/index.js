@@ -3,6 +3,7 @@ import express from "express"
 import { mongoDBurl } from "./config.js"
 import mongoose from "mongoose"
 import cors from "cors"
+import methodOverride from "method-override"
 
 const app = express()
 
@@ -14,6 +15,10 @@ app.use(
 
 //expres JSON parser
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+//for executing patch request
+app.use(methodOverride('_method'))
 
 //connecting to db
 mongoose

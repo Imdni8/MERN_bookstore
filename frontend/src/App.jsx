@@ -1,7 +1,8 @@
 // import axios from "axios"
-import {Routes, Route, Link} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 import Home from "./pages/Home"
-import Booklist from "./pages/Booklist"
+import AddNew from "./pages/AddNew"
+import EditBook from "./pages/EditBook"
 
 function App() {
 // axios.get("http://localhost:3000/books")
@@ -9,13 +10,10 @@ function App() {
 
   return (
     <>
-    <div className='flex'>
-    <Link className='p-2' to="/">Home</Link>
-    <Link className='p-2' to="/booklist">Booklist</Link>
-    </div>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/booklist" element={<Booklist/>} />
+      <Route path="/AddNew" element={<AddNew/>} />
+      <Route path='/EditBook/:id' element={<EditBook/>} />
     </Routes>
     </>
     

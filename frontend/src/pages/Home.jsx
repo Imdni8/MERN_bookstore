@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import BookCard from '../components/BookCard.jsx'
 
 const Home = () => {
+  const [books, setBooks] = useState([])
+  useEffect(() => {
+    axios.get("http://localhost:3000/books")
+    .then(res => {
+      // console.log(res.data)
+      setBooks(res.data)
+    })
+    .catch(err => console.log(err))
+  }, [])
+    
+
   return (
-    <h1 className='text-9xl col text-blue-500 text-center'>Home</h1>
+    <>
+    <header className='flex flex-auto'>
+      <h1 className='text-2xl col text-blue-500'>Book Library</h1>
+      <Link className='px-4 py-2 bg-blue-200 rounded-md' to="/AddNew">Add new book</Link>
+    </header>
+    
+    <div className='flex flex-wrap gap-2'>
+      {books.map((item) => <BookCard className='container-md container' title={item.title} author={item.author} img={item.img} id={item._id} key={item._id}/>)}
+    </div>
+    </>
   )
 }
 

@@ -24,14 +24,15 @@ app.use(methodOverride("_method"));
 
 //accessing env variables
 const mongoDBurl = process.env.mongoDBurl;
+const PORT = process.env.port || 3000;
 
 //connecting to db
 mongoose
     .connect(mongoDBurl)
     .then(() => {
         console.log("App connected to DB");
-        app.listen(process.env.port || 3000, () => {
-            console.log("port open");
+        app.listen(PORT, () => {
+            console.log("port open at ", PORT);
         });
     })
     .catch((err) => {

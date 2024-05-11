@@ -11,7 +11,7 @@ const app = express();
 //setting up CORS
 app.use(
     cors({
-        origin: "http://localhost:5173", //add deployed frontend URL
+        origin: "https://mern-bookstore-frontend-o8d5.onrender.com/",
     })
 );
 

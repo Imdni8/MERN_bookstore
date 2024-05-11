@@ -11,7 +11,7 @@ const app = express();
 //setting up CORS
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "http://localhost:5173", //add deployed frontend URL
     })
 );
 
@@ -24,14 +24,13 @@ app.use(methodOverride("_method"));
 
 //accessing env variables
 const mongoDBurl = process.env.mongoDBurl;
-const port = process.env.port || 3000;
 
 //connecting to db
 mongoose
     .connect(mongoDBurl)
     .then(() => {
         console.log("App connected to DB");
-        app.listen(port, () => {
+        app.listen(process.env.port || 3000, () => {
             console.log("port open");
         });
     })

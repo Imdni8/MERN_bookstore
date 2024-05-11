@@ -7,7 +7,7 @@ const Home = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
         axios
-            .get(import.meta.env.VITE_baseURL)
+            .get(`${import.meta.env.VITE_baseURL}`)
             .then((res) => {
                 // console.log(res.data)
                 setBooks(res.data);

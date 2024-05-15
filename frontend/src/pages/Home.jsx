@@ -7,14 +7,12 @@ const Home = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
         axios
-            .get(import.meta.env.VITE_baseURL)
+            .get("https://mern-bookstore-backend-ampi.onrender.com/books")
             .then((res) => {
                 // console.log(res.data)
                 setBooks(res.data);
             })
             .catch((err) => console.log(err));
-
-            console.log(import.meta.env.VITE_baseURL)
     }, []);
 
     return (

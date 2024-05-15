@@ -9,11 +9,7 @@ dotenv.config(); // Load environment variables
 const app = express();
 
 //setting up CORS
-app.use(
-    cors({
-        origin: "https://mern-bookstore-frontend-o8d5.onrender.com/",
-    })
-);
+app.use(cors({}));
 
 //expres JSON parser
 app.use(express.json());
